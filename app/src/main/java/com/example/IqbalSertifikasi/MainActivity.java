@@ -11,13 +11,17 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.IqbalSertifikasi.auth.Login;
@@ -75,7 +79,62 @@ public class MainActivity extends AppCompatActivity {
         ma = this;
         dbcenter = new DataHelper(this);
         RefreshList();
+
+
+        // Fitur Search
+        EditText searchEditText = findViewById(R.id.searchEditText);
+        ListView01 = findViewById(R.id.listview);
+
+        // Set listener untuk pencarian saat tombol "Search" pada keyboard ditekan
+        searchEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    if (v.getText().toString().isEmpty()) {
+                        resetSearch();
+                    } else {
+                        performSearch(v.getText().toString());
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
     }
+
+    // Search
+    private void performSearch(String keyword) {
+        SQLiteDatabase db = dbcenter.getReadableDatabase();
+        cursor = db.rawQuery("SELECT * FROM biodata WHERE nama LIKE ?", new String[]{"%" + keyword + "%"});
+
+        daftar = new String[cursor.getCount()];
+        cursor.moveToFirst();
+        for (int cc = 0; cc < cursor.getCount(); cc++){
+            cursor.moveToPosition(cc);
+            daftar[cc] = cursor.getString(1).toString();
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, daftar);
+        ListView01.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+
+    private void resetSearch() {
+        SQLiteDatabase db = dbcenter.getReadableDatabase();
+        cursor = db.rawQuery("SELECT * FROM biodata", null);
+        daftar = new String[cursor.getCount()];
+        cursor.moveToFirst();
+        for (int cc = 0; cc < cursor.getCount(); cc++){
+            cursor.moveToPosition(cc);
+            daftar[cc] = cursor.getString(1).toString();
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, daftar);
+        ListView01.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
 
     public void  RefreshList() {
         SQLiteDatabase db = dbcenter.getReadableDatabase();
