@@ -1,5 +1,6 @@
-package com.example.latihansertifikasi1.auth;
+package com.example.IqbalSertifikasi.auth;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,8 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.latihansertifikasi1.R;
-import com.example.latihansertifikasi1.data.DataHelper;
+import com.example.IqbalSertifikasi.R;
+import com.example.IqbalSertifikasi.data.DataHelper;
 
 public class Register extends AppCompatActivity {
 
@@ -24,8 +25,10 @@ public class Register extends AppCompatActivity {
         EditText repassword = findViewById(R.id.etRepeatPassword);
         Button daftar = findViewById(R.id.btnRegister);
 
-        db = new DataHelper(this);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Halaman Register");
 
+        db = new DataHelper(this);
         daftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

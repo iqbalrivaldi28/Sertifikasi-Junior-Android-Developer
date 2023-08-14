@@ -10,4 +10,6 @@
 
     <color name="primary">#2196F3</color>
     <color name="background">#38ffffff</color>
+    <color name="navy">#2D3D4F</color>
+    <color name="secondary">#FF815E</color>
 </resources>

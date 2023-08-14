@@ -1,5 +1,6 @@
-package com.example.latihansertifikasi1.auth;
+package com.example.IqbalSertifikasi.auth;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -12,9 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.latihansertifikasi1.MainActivity;
-import com.example.latihansertifikasi1.R;
-import com.example.latihansertifikasi1.data.DataHelper;
+import com.example.IqbalSertifikasi.MainActivity;
+import com.example.IqbalSertifikasi.R;
+import com.example.IqbalSertifikasi.data.DataHelper;
 
 public class Login extends AppCompatActivity {
     private EditText etUsername, etPassword;
@@ -38,6 +39,9 @@ public class Login extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
         tvRegister = findViewById(R.id.tvRegister);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Halaman Login");
 
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override

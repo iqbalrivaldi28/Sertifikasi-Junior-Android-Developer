@@ -1,4 +1,4 @@
-package com.example.latihansertifikasi1;
+package com.example.IqbalSertifikasi;
 
 import org.junit.Test;
 

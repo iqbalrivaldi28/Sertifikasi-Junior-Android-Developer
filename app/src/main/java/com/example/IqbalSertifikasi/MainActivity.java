@@ -1,6 +1,6 @@
-package com.example.latihansertifikasi1;
+package com.example.IqbalSertifikasi;
 
-import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,12 +20,12 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.latihansertifikasi1.auth.Login;
-import com.example.latihansertifikasi1.data.DataHelper;
-import com.example.latihansertifikasi1.ui.BuatBiodata;
-import com.example.latihansertifikasi1.ui.LihatBiodata;
-import com.example.latihansertifikasi1.ui.Tentang;
-import com.example.latihansertifikasi1.ui.UpdateBiodata;
+import com.example.IqbalSertifikasi.auth.Login;
+import com.example.IqbalSertifikasi.data.DataHelper;
+import com.example.IqbalSertifikasi.ui.BuatBiodata;
+import com.example.IqbalSertifikasi.ui.LihatBiodata;
+import com.example.IqbalSertifikasi.ui.Tentang;
+import com.example.IqbalSertifikasi.ui.UpdateBiodata;
 
 public class MainActivity extends AppCompatActivity {
     String [] daftar;
@@ -50,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
         Button btn =(Button) findViewById(R.id.button2);
         btnKeluar = findViewById(R.id.btnKeluar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Data Mahasiswa");
 
         // Menginisialisasi objek dbcenter
         dbcenter = new DataHelper(this);
@@ -91,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView arg0, View arg1, int arg2, long arg3) {
                 final String selection = daftar[arg2];
-                final CharSequence[] dialogitem = {"Lihat Biodata", "Update Biodata", "Hapus Biodata"};
+                final CharSequence[] dialogitem = {"Lihat Data Mahasiswa", "Update Data Mahasiswa", "Hapus Data Mahasiswa"};
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Pilihan");
@@ -121,6 +124,9 @@ public class MainActivity extends AppCompatActivity {
                                         SQLiteDatabase db = dbcenter.getWritableDatabase();
                                         db.execSQL("DELETE FROM biodata WHERE nama = '" + selection + "'");
                                         RefreshList();
+
+                                        // Tampilkan Toast ketika data berhasil dihapus
+                                        Toast.makeText(MainActivity.this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                                 alertDialogBuilder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {

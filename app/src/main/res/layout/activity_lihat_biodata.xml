@@ -4,79 +4,107 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="24dp">
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
         android:text="Nomor"/>
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="24sp"
         android:hint="Masukkan nomor"/>
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"
         android:text="Nama"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="24sp"
         android:hint="Masukkan nama"/>
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
         android:text="Tanggal Lahir"/>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="24sp"
         android:hint="Masukkan tanggal lahir"/>
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"
         android:text="Jenis Kelamin"/>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="24sp"
         android:hint="Masukkan jenis kelamin"/>
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
         android:text="Alamat"/>
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="24sp"
         android:hint="Masukkan alamat"/>
 
 
+<!--    <Button-->
+<!--        android:id="@+id/button1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:text="Kembali"/>-->
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnShare"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Kembali"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/shapebutton"
+        android:backgroundTint="@color/navy"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:text="Bagikan ke WhatsApp"/>
+
 
 </LinearLayout>

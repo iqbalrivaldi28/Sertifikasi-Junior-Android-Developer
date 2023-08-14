@@ -1,4 +1,4 @@
-package com.example.latihansertifikasi1;
+package com.example.IqbalSertifikasi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 
-import com.example.latihansertifikasi1.auth.Login;
+import com.example.IqbalSertifikasi.auth.Login;
 
 public class SplashScreen extends AppCompatActivity {
 

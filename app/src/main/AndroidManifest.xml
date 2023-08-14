@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.latihansertifikasi1">
+    package="com.example.IqbalSertifikasi">
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -11,31 +13,32 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.LatihanSertifikasi1"
+        android:theme="@style/Theme.IqbalSertifikasi"
         tools:targetApi="31">
         <activity
-            android:name=".auth.Login"
+            android:name="com.example.IqbalSertifikasi.auth.Login"
             android:exported="false" />
         <activity
-            android:name=".auth.Register"
+            android:name="com.example.IqbalSertifikasi.auth.Register"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.IqbalSertifikasi.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Tentang"
+            android:name="com.example.IqbalSertifikasi.ui.Tentang"
             android:exported="false" />
         <activity
-            android:name=".ui.UpdateBiodata"
+            android:name="com.example.IqbalSertifikasi.ui.UpdateBiodata"
             android:exported="false" />
         <activity
-            android:name=".ui.LihatBiodata"
+            android:name="com.example.IqbalSertifikasi.ui.LihatBiodata"
             android:exported="false" />
         <activity
-            android:name=".ui.BuatBiodata"
+            android:name="com.example.IqbalSertifikasi.ui.BuatBiodata"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name="com.example.IqbalSertifikasi.SplashScreen"
+            android:theme="@style/Theme.IqbalSertifikasiNoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

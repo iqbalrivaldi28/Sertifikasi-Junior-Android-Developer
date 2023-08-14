@@ -66,16 +66,28 @@
         android:layout_height="wrap_content"
         android:hint="Masukkan alamat"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Update"/>
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shapebutton"
+        android:backgroundTint="@color/navy"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:text="Update Data Mahasiswa"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shapebutton"
+        android:backgroundTint="@color/navy"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="14sp"
         android:text="Kembali"/>
 
 </LinearLayout>

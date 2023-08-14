@@ -1,4 +1,4 @@
-package com.example.latihansertifikasi1.data;
+package com.example.IqbalSertifikasi.data;
 
 import android.content.ContentValues;
 import android.content.Context;

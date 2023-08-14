@@ -11,7 +11,7 @@
         android:id="@+id/logoImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/ic_android_black_24dp"
+        android:src="@drawable/logodigitalent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,9 @@
         android:id="@+id/judulTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aplikasi Mahasiswa"
+        android:text="Aplikasi Biodata Mahasiswa"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@id/logoImageView"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,21 +36,63 @@
         android:id="@+id/deskripsiTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Deskripsi singkat tentang aplikasi ini. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at risus sit amet justo sollicitudin commodo. "
+        android:text="@string/deskripsi"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/judulTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
-    <!-- Tombol Kembali -->
-    <Button
-        android:id="@+id/kembaliButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Kembali"
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/profile"
         app:layout_constraintTop_toBottomOf="@id/deskripsiTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:id="@+id/nama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="M. Iqbal Rivaldi"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/photo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/pekejaan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Junior Android Developer"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/nama"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/kembaliButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shapebutton"
+        android:text="Hubungi Saya"
+        app:layout_constraintTop_toBottomOf="@id/pekejaan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/navy"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="14sp"
         android:layout_marginTop="32dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
