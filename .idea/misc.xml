@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/acer/AndroidStudioProjects/LatihanSertifikasi1/app/src/main/res/drawable-v24/baseline_lock_24.xml" value="0.144" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/LatihanSertifikasi1/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.144" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/LatihanSertifikasi1/app/src/main/res/layout/activity_buat_biodata.xml" value="0.28353658536585363" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/LatihanSertifikasi1/app/src/main/res/layout/activity_lihat_biodata.xml" value="0.33" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/LatihanSertifikasi1/app/src/main/res/layout/activity_login.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/LatihanSertifikasi1/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/LatihanSertifikasi1/app/src/main/res/layout/activity_register.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/LatihanSertifikasi1/app/src/main/res/layout/activity_splash_screen.xml" value="0.184375" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/LatihanSertifikasi1/app/src/main/res/layout/activity_tentang.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/LatihanSertifikasi1/app/src/main/res/layout/activity_update_biodata.xml" value="0.25" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/LatihanSertifikasi1/app/src/main/res/menu/menu_main.xml" value="0.184375" />

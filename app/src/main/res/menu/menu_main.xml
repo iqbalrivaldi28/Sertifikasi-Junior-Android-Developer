@@ -6,4 +6,11 @@
         android:orderInCategory="100"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/btnKeluar"
+        android:title="Keluar"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+
 </menu>

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -17,7 +18,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.example.latihansertifikasi1.auth.Login;
 import com.example.latihansertifikasi1.data.DataHelper;
 import com.example.latihansertifikasi1.ui.BuatBiodata;
 import com.example.latihansertifikasi1.ui.LihatBiodata;
@@ -32,15 +35,32 @@ public class MainActivity extends AppCompatActivity {
     DataHelper dbcenter;
     public static MainActivity ma;
 
+    private Button btnKeluar;
+
+    //shared pref
+    public static final String SHARED_PREF_NAME = "myPref";
+
+    private SharedPreferences sharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
         Button btn =(Button) findViewById(R.id.button2);
+        btnKeluar = findViewById(R.id.btnKeluar);
+
+        // Menginisialisasi objek dbcenter
+        dbcenter = new DataHelper(this);
+        Boolean checksession = dbcenter.checkSession("ada");
+        if (checksession == false){
+            Intent login = new Intent(getApplicationContext(), Login.class);
+            startActivity(login);
+            finish();
+        }
 
         btn.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View arg0) {
                 Intent inte = new Intent(MainActivity.this, BuatBiodata.class);
@@ -92,9 +112,25 @@ public class MainActivity extends AppCompatActivity {
                                 break;
 
                             case 2:
-                                SQLiteDatabase db = dbcenter.getWritableDatabase();
-                                db.execSQL("DELETE FROM biodata WHERE nama = '" + selection + "'");
-                                RefreshList();
+                                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                                alertDialogBuilder.setTitle("Konfirmasi");
+                                alertDialogBuilder.setMessage("Apakah Anda yakin ingin menghapus data ini?");
+                                alertDialogBuilder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        SQLiteDatabase db = dbcenter.getWritableDatabase();
+                                        db.execSQL("DELETE FROM biodata WHERE nama = '" + selection + "'");
+                                        RefreshList();
+                                    }
+                                });
+                                alertDialogBuilder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss(); // Tutup dialog jika pengguna memilih "Tidak"
+                                    }
+                                });
+                                AlertDialog alertDialog = alertDialogBuilder.create();
+                                alertDialog.show();
                                 break;
                         }
                     }
@@ -118,6 +154,23 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(this, Tentang.class);
             startActivity(i);
             return true;
+        } else if (id == R.id.btnKeluar){
+
+            // Menginisialisasi dbcenter di dalam onClick()
+            dbcenter = new DataHelper(getApplicationContext());
+
+            Boolean updateSession = dbcenter.upgradeSession("kosong", 1);
+            if (updateSession == true) {
+                Toast.makeText(getApplicationContext(), "Berhasil Keluar", Toast.LENGTH_LONG).show();
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("masuk", false);
+                editor.apply();
+
+                Intent keluar = new Intent(getApplicationContext(), Login.class);
+                startActivity(keluar);
+                finish();
+            }
         }
         return super.onOptionsItemSelected(item);
     }
