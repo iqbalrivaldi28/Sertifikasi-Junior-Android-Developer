@@ -24,7 +24,7 @@ public class Login extends AppCompatActivity {
 
     private DataHelper db;
 
-    //shared pref
+    //shared preference
     public static final String SHARED_PREF_NAME = "myPref";
 
     private SharedPreferences sharedPreferences;

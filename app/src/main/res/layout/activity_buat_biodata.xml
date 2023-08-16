@@ -36,16 +36,28 @@
         android:layout_height="wrap_content"
         android:text="Tanggal Lahir"/>
 
-    <EditText
-        android:id="@+id/editText3"
+    <!-- Ganti EditText menjadi DatePicker -->
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content"/>
+    <!-- ... -->
+
+    <TextView
+        android:id="@+id/textViewTanggal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Masukkan tanggal lahir"/>
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:hint="Tangal Lahir"/>
+
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Jenis Kelamin"/>
 
     <EditText

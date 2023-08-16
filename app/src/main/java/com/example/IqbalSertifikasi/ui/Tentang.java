@@ -33,8 +33,8 @@ public class Tentang extends AppCompatActivity {
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phoneNumber = "6282373231266"; // Ganti dengan nomor WhatsApp Anda
-                String message = "Hai Iqbal, kamu lagi sertifikasi Junior Mobile Programmer Yaa!"; // Pesan yang ingin Anda kirimkan
+                String phoneNumber = "6282373231266";
+                String message = "Hai Iqbal, kamu lagi sertifikasi Junior Mobile Programmer Yaa!";
 
                 bukaWa(phoneNumber, message);
             }

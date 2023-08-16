@@ -56,15 +56,6 @@ public class LihatBiodata extends AppCompatActivity {
             text5.setText(cursor.getString(4).toString());
         }
 
-//        bt2 = (Button) findViewById(R.id.button1);
-//        bt2.setOnClickListener(new View.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View view) {
-//                finish();
-//            }
-//        });
-
 
         // Share Data ke WA
         Button btnShare = findViewById(R.id.btnShare);
@@ -105,12 +96,11 @@ public class LihatBiodata extends AppCompatActivity {
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT, textToShare);
         sendIntent.setType("text/plain");
-        sendIntent.setPackage("com.whatsapp"); // Set WhatsApp sebagai aplikasi tujuan
+        sendIntent.setPackage("com.whatsapp");
 
         try {
             startActivity(sendIntent);
         } catch (ActivityNotFoundException e) {
-            // Tampilkan pesan jika WhatsApp tidak ditemukan
             Toast.makeText(this, "Aplikasi WhatsApp tidak ditemukan", Toast.LENGTH_SHORT).show();
         }
     }

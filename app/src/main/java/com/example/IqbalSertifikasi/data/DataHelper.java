@@ -16,16 +16,17 @@ public class DataHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // ToDo
-        String sql = "create table biodata (no integer primary key, nama text null, tgl text null, jk text null, alamat text null);";
+        // Tabel Biodata
+
+        String sql = "create table biodata (no integer primary key, nama text null, tgl date null, jk text null, alamat text null);";
         Log.d("Data", "onCreate: " + sql);
         db.execSQL(sql);
 
-        sql = "INSERT INTO biodata(no, nama, tgl, jk, alamat) VALUES ('1001', 'Anto Kuniawan', '14-02-1996', 'L', 'Semarang');";
+        sql = "INSERT INTO biodata(no, nama, tgl, jk, alamat) VALUES (1001, 'Andy', '1996-02-14', 'L', 'Semarang');";
         db.execSQL(sql);
 
 
-        // Login & Register
+        // Tabel Login & Register
         db.execSQL("CREATE TABLE session (id integer PRIMARY KEY, login text)");
         db.execSQL("CREATE TABLE user (id integer PRIMARY KEY AUTOINCREMENT, username text, password text)");
         db.execSQL("INSERT INTO session(id, login) VALUES (1, 'kosong')");
